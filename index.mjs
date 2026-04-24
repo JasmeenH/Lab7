@@ -24,7 +24,7 @@ app.set('trust proxy', 1) // trust first proxy
 app.use(session({
    secret: 'keyboard cat',
    resave: false,
-   saveUninitialized: false,
+   saveUninitialized: true,
    //   cookie is not for local work
    cookie: { secure: true }
 }))
@@ -136,7 +136,7 @@ app.post('/updateQuote', isUserAuthenticated, async (req, res) => {
               SET
               quoteId = ?,
               authorId = ?,
-              quote = ?,
+              quote = ?
               WHERE quoteId = ?
               `;
    let sqlParams = [quoteId, authorId, quote];
