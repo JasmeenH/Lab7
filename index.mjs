@@ -26,7 +26,7 @@ app.use(session({
    resave: false,
    saveUninitialized: true,
    //   cookie is not for local work
-   // cookie: { secure: true }
+   cookie: { secure: true }
 }))
 
 app.get("/", (req, res) => {
