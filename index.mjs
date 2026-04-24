@@ -33,6 +33,10 @@ app.get("/", (req, res) => {
    res.render("login.ejs")
 });
 
+app.get("/home", isUserAuthenticated, (req, res) => {
+   res.render("home.ejs");
+});
+
 app.get("/authors", isUserAuthenticated, async (req, res) => {
    let sql = `SELECT authorId, firstName, lastName 
                FROM authors
