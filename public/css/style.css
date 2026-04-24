@@ -65,6 +65,10 @@ button:hover{
     height: 100%;
 }
 
+.cardLogin{
+    font-weight: bold;
+}
+
 .card{
     background-color: #353d4b;
     color: aliceblue;
