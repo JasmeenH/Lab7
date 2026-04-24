@@ -22,11 +22,11 @@ const pool = mysql.createPool({
 
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true,
-    //   cookie is not for local work
-      // cookie: { secure: true }
+   secret: 'keyboard cat',
+   resave: false,
+   saveUninitialized: true,
+   //   cookie is not for local work
+   cookie: { secure: true }
 }))
 
 app.get("/", (req, res) => {
@@ -100,7 +100,7 @@ app.get("/updateQuote", isUserAuthenticated, async (req, res) => {
                FROM quotes
                WHERE quoteId = ?`;
    const [quoteInfo] = await pool.query(sql, [quoteId]);
-// get the list of full authors for author drop down list
+   // get the list of full authors for author drop down list
    let author_sql = `SELECT authorId,  lastName, firstName
                      FROM authors`;
    const [authors] = await pool.query(author_sql);
@@ -191,50 +191,50 @@ app.post("/newAuthor", isUserAuthenticated, async (req, res) => {
 });
 
 app.get('/logout', (req, res) => {
-    req.session.destroy();
-    res.redirect("/");
+   req.session.destroy();
+   res.redirect("/");
 });
 
 //route that checks username and password
 app.post('/loginProcess', async (req, res) => {
-    let { username, password } = req.body;
+   let { username, password } = req.body;
    //  console.log(username + ": " + password);
 
-    let hashedPassword = "";
+   let hashedPassword = "";
 
-    let sql = `SELECT *
+   let sql = `SELECT *
               FROM admin
               WHERE username = ?`;
-    const [rows] = await pool.query(sql, [username]);
+   const [rows] = await pool.query(sql, [username]);
 
-    if (rows.length > 0) { //username was found in the database
-        hashedPassword = rows[0].password;
-    }
+   if (rows.length > 0) { //username was found in the database
+      hashedPassword = rows[0].password;
+   }
 
-    const match = await bcrypt.compare(password, hashedPassword);
+   const match = await bcrypt.compare(password, hashedPassword);
 
-    if (match) {
-        req.session.authenticated = true;
-        req.session.fullName = rows[0].firstName + " " + rows[0].lastName;
-        res.render('home.ejs', { "fullName": req.session.fullName });
-    } else {
-        let loginError = "Wrong Credentials! Try again!";
-        res.render('login.ejs', { loginError });
-    }
+   if (match) {
+      req.session.authenticated = true;
+      req.session.fullName = rows[0].firstName + " " + rows[0].lastName;
+      res.render('home.ejs', { "fullName": req.session.fullName });
+   } else {
+      let loginError = "Wrong Credentials! Try again!";
+      res.render('login.ejs', { loginError });
+   }
 });
 
 function isUserAuthenticated(req, res, next) {
-    if (req.session.authenticated) {
-        next();
-    } else {
-        res.redirect("/");
-    }
+   if (req.session.authenticated) {
+      next();
+   } else {
+      res.redirect("/");
+   }
 }
 
 // middleware function that sets user's fullName
 app.use((req, res, next) => {
-    res.locals.fullName = req.session.fullName || "";
-    next(); //next middleware/route - the code that is going to be executed
+   res.locals.fullName = req.session.fullName || "";
+   next(); //next middleware/route - the code that is going to be executed
 });
 
 app.listen(3000, () => {
