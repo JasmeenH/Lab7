@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("partials/head.ejs")%>
+        <title>All Authors</title>
+</head>
+
+<body>
+    <%- include("partials/nav.ejs")%>
+        <div class="card">
+            <h1>All Authors</h1>
+            <hr>
+            <div class="allPagesCard">
+            <% for(let i of authors) {%>
+                <a href="/updateAuthor?authorId=<%= i.authorId %> " >Update</a>
+                <a href="/deleteAuthor?authorId=<%= i.authorId %> ">Delete</a>
+                <%= i.firstName %>
+                    <%= i.lastName %> <br><br>
+                        <% } %>
+        </div>
+        </div>
+</body>
+
+</html>

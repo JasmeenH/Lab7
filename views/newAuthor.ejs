@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <%- include("partials/head.ejs")%>
+     <title>Add Author</title>
+
+</head>
+<body>
+    <%- include("partials/nav.ejs")%>
+    <div class="card">
+    <h1>Add New Author</h1>
+    <hr>
+    <div class="allPagesCard">
+    <form action="/newAuthor" method="POST">
+        Author: <input type="text" name="author">
+            <br>
+            Gender: <label><input type="radio" name="gender" value="M">M</label>
+            <label><input type="radio" name="gender" value="F">F</label>
+            <br>
+            Date of birth: <input type="date" name="dob"><br>
+            Date of death: <input type="date" name="dod"><br>
+            Biography: <textarea name="bio"></textarea> <br>
+            Image url: <input type="url" name="portrait">
+        <button>Submit</button>
+    </form>
+    </div>
+    </div>
+   
+</body>
+</html>

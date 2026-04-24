@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("partials/head.ejs")%>
+        <title>Home</title>
+</head>
+
+<body>
+    <%- include("partials/nav.ejs")%>
+        <div class="cardHome">
+            <h1>Admin Section</h1>
+            <hr>
+            <div id="homePage">
+                <form action="/authors" method="GET">
+                    <button class="homeBtns">Display Authors</button>
+                </form>
+                <br>
+                <form action="/newAuthor" method="GET">
+                    <button class="homeBtnsAdd">Add Authors</button>
+                </form>
+                <br>
+                <form action="/quotes" method="GET">
+                    <button class="homeBtns">Display Quotes</button>
+                </form>
+                <br>
+                 <form action="/newQuote" method="GET">
+                    <button class="homeBtnsAdd">Add Quotes</button>
+                </form>
+            </div>
+
+        </div>
+
+</body>
+
+</html>

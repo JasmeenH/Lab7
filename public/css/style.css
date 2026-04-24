@@ -1,0 +1,152 @@
+body {
+    background-color: #1e293b;
+    color: white;
+    margin: 0;
+    
+}
+
+textarea{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+input{ 
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+select{
+     border-radius: 5px;
+     margin-bottom: 10px;
+}
+
+button{
+    background: #365b97;
+    color: white;
+    align-items: center;
+    font-weight: bold;
+    transition: 0.2s;
+    border-radius: 10px;
+    width: 140px;
+    height: 50px;
+}
+
+button:hover{
+    background: #1a3664;
+}
+
+.loginDiv {
+    position: relative;
+    display: inline-block;
+}
+
+.loginIcon {
+    position: absolute;
+    right: 5px;
+    top: 3px;
+    cursor: pointer;
+}
+
+.mainBody {
+    display: flex;
+}
+
+.cardHome{
+    background-color: #353d4b;
+    color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    width: 700px;
+    transition: 0.3s;
+    height: 100%;
+}
+
+.card{
+    background-color: #353d4b;
+    color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    width: 700px;
+    transition: 0.3s;
+    height: 100%;
+}
+.allPagesCard{
+    font-weight: bold;
+}
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: linear-gradient(180deg, #202a68, #14597c);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar hr {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 15px 0;
+}
+
+.homeBtns {
+    background: #365b97;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    padding: 12px 18px;
+    font-size: 25px;
+    font-weight: 600;
+    border-radius: 6px;
+    min-width: 160px;
+    height: 100px;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.homeBtnsAdd {
+    background: #358050;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    padding: 12px 18px;
+    font-size: 25px;
+    font-weight: 600;
+    border-radius: 6px;
+    min-width: 160px;
+    height: 100px;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+h1 {
+    font-weight: bolder;
+}
+
+#homePage {
+    display: flex;
+    justify-content: space-around;
+}

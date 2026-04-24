@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <%- include("partials/head.ejs")%>
+    <title>All Quotes</title>
+</head>
+<body>
+    <%- include("partials/nav.ejs")%>
+    <div class="card">
+    <h1>All Quotes</h1>
+    <hr>
+    <div class="allPagesCard">
+    <% for(let i of quotes) {%>   
+        <a href="/updateQuote?quoteId=<%= i.quoteId %> ">Update</a>  
+
+    <%= i.quote %><br><br>
+     <% } %>
+        </div>
+    </div>
+</body>
+</html>

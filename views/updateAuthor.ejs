@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("partials/head.ejs")%>
+        <title>Update Author</title>
+</head>
+
+<body>
+    <%- include("partials/nav.ejs")%>
+        <div class="card">
+            <h1>Update Author</h1>
+            <hr>
+            <div class="allPagesCard">
+                <form action="/updateAuthor" method="POST">
+                    <input type="hidden" name="authorId" value="<%= authorInfo[0].authorId %>">
+                    First Name: <input type="text" name="firstName" value="<%= authorInfo[0].firstName %>"><br>
+                    Last Name: <input type="text" name="lastName" value="<%= authorInfo[0].lastName %>"><br>
+                    Sex:
+                    <label><input type="radio" <% if (authorInfo[0].sex=='F' ) { %>
+                        checked
+                        <% } %>
+                            value="F" name="sex"> F
+                    </label>
+                    <label><input type="radio" <%=(authorInfo[0].sex=='M' )?"checked":""%>
+                        value="M" name="sex"> M </label> <br>
+
+                    Date of birth: <input type="date" name="dob" value="<%= authorInfo[0].ISOdob %>"><br>
+                    Date of death: <input type="date" name="dod" value="<%= authorInfo[0].ISOdod %>"><br>
+                    Profession: <input type="text" name="profession" value="<%= authorInfo[0].profession %>"><br>
+                    Country: <input type="text" name="country" value="<%= authorInfo[0].country %>"><br>
+                    Biography: <textarea name="bio"> <%= authorInfo[0].biography %></textarea> <br>
+                    Image url: <input type="url" name="portrait" value="<%= authorInfo[0].portrait %>">
+                    <button>Update Author!</button>
+                </form>
+            </div>
+        </div>
+</body>
+
+</html>
