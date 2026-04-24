@@ -26,7 +26,7 @@ app.use(session({
    resave: false,
    saveUninitialized: true,
    //   cookie is not for local work
-   cookie: { secure: true }
+   // cookie: { secure: true }
 }))
 
 app.get("/", (req, res) => {
@@ -57,7 +57,7 @@ app.get("/updateAuthor", isUserAuthenticated, async (req, res) => {
 });
 
 
-app.post('/deleteAuthor', isUserAuthenticated, async (req, res) => {
+app.get('/deleteAuthor', isUserAuthenticated, async (req, res) => {
    let authorId = req.query.authorId;
 
    let sql = `DELETE
@@ -67,6 +67,18 @@ app.post('/deleteAuthor', isUserAuthenticated, async (req, res) => {
    let sqlParams = [authorId]
    const [rows] = await pool.query(sql, sqlParams);
    res.redirect('/authors')
+});
+
+app.get('/deleteQuote', isUserAuthenticated, async (req, res) => {
+   let quoteId = req.query.quoteId;
+
+   let sql = `DELETE
+            FROM quotes
+              WHERE quoteId = ?
+              `;
+   let sqlParams = [quoteId]
+   const [rows] = await pool.query(sql, sqlParams);
+   res.redirect('/quotes')
 });
 
 app.post('/updateAuthor', isUserAuthenticated, async (req, res) => {

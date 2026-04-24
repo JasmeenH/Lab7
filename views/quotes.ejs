@@ -12,7 +12,7 @@
     <div class="allPagesCard">
     <% for(let i of quotes) {%>   
         <a href="/updateQuote?quoteId=<%= i.quoteId %> ">Update</a>  
-
+        <a href="/deleteQuote?quoteId=<%= i.quoteId %> ">Delete</a>
     <%= i.quote %><br><br>
      <% } %>
         </div>
